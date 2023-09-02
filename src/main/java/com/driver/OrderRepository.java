@@ -81,15 +81,17 @@ public class OrderRepository {
         return count;
     }
 
-    public Integer getLastDeliveryTimeByPartnerId(String partnerId) {
+    public String getLastDeliveryTimeByPartnerId(String partnerId) {
         int maxTime=0;
         List<String> orders=partnerOrdersDb.get(partnerId);
         for(String orderId:orders){
             int currentTime=ordersDb.get(orderId).getDeliveryTime();
             maxTime=Math.max(currentTime,maxTime);
         }
-        return maxTime;
+        return Integer.toString(maxTime);
     }
+
+
 
     public void deletePartnerById(String partnerId) {
 
