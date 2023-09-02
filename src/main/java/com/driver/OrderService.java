@@ -45,19 +45,19 @@ public class OrderService {
         return orderRepository.getAllOrders();
     }
 
-    public int getCountOfUnassignedOrders() {
+    public Integer getCountOfUnassignedOrders() {
 
         return  orderRepository.getCountOfUnassignedOrders();
     }
 
-    public int getOrdersLeftAfterGivenTimeByPartnerId(String deliveryTime, String partnerId) {
+    public Integer getOrdersLeftAfterGivenTimeByPartnerId(String deliveryTime, String partnerId) {
         String time[]=deliveryTime.split(":");
         int newTime=Integer.parseInt(time[0])*60 +Integer.parseInt(time[1]);
         return orderRepository.getOrdersLeftAfterGivenTimeByPartnerId(newTime,partnerId);
     }
 
     public String getLastDeliveryTimeByPartnerId(String partnerId) {
-        int time= orderRepository.getLastDeliveryTimeByPartnerId(partnerId);
+        Integer time= orderRepository.getLastDeliveryTimeByPartnerId(partnerId);
         String HH=String.valueOf(time/60);
         String MM=String.valueOf(time%60);
 

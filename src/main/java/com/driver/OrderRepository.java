@@ -49,7 +49,7 @@ public class OrderRepository {
        return deliveryPartnerDb.get(partnerId);
     }
 
-    public int getOrderCountByPartnerId(String partnerId) {
+    public Integer getOrderCountByPartnerId(String partnerId) {
        return partnerOrdersDb.get(partnerId).size();
     }
 
@@ -70,7 +70,7 @@ public class OrderRepository {
         return ordersDb.size()-orderPartnerDb.size();
     }
 
-    public int getOrdersLeftAfterGivenTimeByPartnerId(int time, String partnerId) {
+    public Integer getOrdersLeftAfterGivenTimeByPartnerId(int time, String partnerId) {
         int count=0;
         List<String> orders=partnerOrdersDb.get(partnerId);
 
@@ -81,7 +81,7 @@ public class OrderRepository {
         return count;
     }
 
-    public int getLastDeliveryTimeByPartnerId(String partnerId) {
+    public Integer getLastDeliveryTimeByPartnerId(String partnerId) {
         int maxTime=0;
         List<String> orders=partnerOrdersDb.get(partnerId);
         for(String orderId:orders){
